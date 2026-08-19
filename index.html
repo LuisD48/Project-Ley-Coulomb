@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador - Ley de Coulomb</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="main-wrapper">
+        <!-- Panel lateral izquierdo: Marco Teórico -->
+        <div class="sidebar">
+            <h3>Ley de Coulomb</h3>
+            <p>La magnitud de la fuerza eléctrica entre dos cargas puntuales es directamente proporcional al producto de las cargas e inversamente proporcional al cuadrado de la distancia que las separa.</p>
+            
+            <div class="formula-box">
+                F = K <span class="fraction"><span class="top">|q₁ · q₂|</span><span class="bottom">r²</span></span>
+            </div>
+
+            <div class="variables">
+                <h4>Variables:</h4>
+                <ul>
+                    <li><strong>F:</strong> Fuerza eléctrica <em>(Newtons, N)</em></li>
+                    <li><strong>q₁, q₂:</strong> Cargas eléctricas <em>(Coulombs, C)</em></li>
+                    <li><strong>r:</strong> Distancia entre las cargas <em>(Metros, m)</em></li>
+                </ul>
+                
+                <h4>Constante:</h4>
+                <ul>
+                    <li><strong>K (Constante de Coulomb):</strong> <br>9 × 10⁹ N·m²/C²</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Panel derecho: El simulador que ya tenías -->
+        <div class="container">
+            <h2>Simulador: Fuerza Eléctrica</h2>
+            
+            <div class="form-group">
+                <label>Carga 1 (µC):</label>
+                <input type="number" id="q1" value="5" step="any">
+            </div>
+            
+            <div class="form-group">
+                <label>Carga 2 (µC):</label>
+                <input type="number" id="q2" value="-3" step="any">
+            </div>
+            
+            <div class="form-group">
+                <label>Distancia (cm):</label>
+                <input type="number" id="r" value="10" step="any" min="0.1">
+            </div>
+            
+            <button onclick="calcularFuerza()">Calcular y Simular</button>
+
+            <div class="result" id="resultado">
+                Ingresa los valores y presiona calcular.
+            </div>
+
+            <div class="visual" id="zona-visual">
+                <div class="charge positive" id="bola1">+</div>
+                <div class="arrows" id="flechas">Esperando simulación...</div>
+                <div class="charge negative" id="bola2">-</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/simulador.js"></script>
+</body>
+</html>
