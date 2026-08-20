@@ -151,6 +151,14 @@ button:hover { background-color: #0b5ed7; }
     color: #212529;
 }
 
+.btn-reset { 
+    background-color: #6c757d; /* Color gris secundario */
+    margin-top: 10px;
+}
+
+.btn-reset:hover { 
+    background-color: #5a6268; /* Gris más oscuro al pasar el mouse */
+}
 .visual { 
     display: flex; 
     justify-content: space-between; 

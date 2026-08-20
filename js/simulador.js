@@ -24,9 +24,29 @@ function calcularFuerza() {
         tipo = (q1 * q2 < 0) ? "Atracción" : "Repulsión";
     }
 
-    // 5. Imprimir los resultados validados
+    // --- NUEVO: Formato de Notación Científica ---
+    let fuerzaStr = fuerza.toExponential(3); // Ejemplo: "4.500e-3"
+    let partes = fuerzaStr.split('e');       // Parte el texto en la "e"
+    let base = partes[0];
+    let exponente = parseInt(partes[1]);     // Convierte el exponente a número entero
+
+    // Creamos la cadena en formato HTML: base x 10^exponente
+    let fuerzaFormateada = `${base} &times; 10<sup>${exponente}</sup>`;
+    // ----------------------------------------------
+    // Calcular los campos eléctricos: E = K * |q| / r²
+    let campo1 = K * Math.abs(q1) / Math.pow(r, 2);
+    let campo2 = K * Math.abs(q2) / Math.pow(r, 2);
+    
+    let c1Str = campo1.toExponential(3).split('e');
+    let c1Fmt = `${c1Str[0]} &times; 10<sup>${parseInt(c1Str[1])}</sup>`;
+
+    let c2Str = campo2.toExponential(3).split('e');
+    let c2Fmt = `${c2Str[0]} &times; 10<sup>${parseInt(c2Str[1])}</sup>`;
+    // 5. Imprimir los resultados validados con el nuevo formato
     document.getElementById('resultado').innerHTML = 
-        `<strong>Fuerza Eléctrica (F):</strong> ${fuerza.toExponential(3)} N <br> 
+        `<strong>Fuerza Eléctrica (F):</strong> ${fuerzaFormateada} N <br> 
+        <strong>Campo de Carga 1 (E<sub>1</sub>):</strong> ${c1Fmt} N/C <br>
+         <strong>Campo de Carga 2 (E<sub>2</sub>):</strong> ${c2Fmt} N/C <br><br>
          <strong>Comportamiento:</strong> Fuerza de ${tipo}`;
 
     // 6. Actualizar colores y aplicar animaciones
@@ -42,8 +62,8 @@ function calcularFuerza() {
         flechas.innerHTML = "--> Atracción <--";
         flechas.style.color = "#198754";
         // Se acercan al centro
-        bola1.style.transform = "translateX(150px)";
-        bola2.style.transform = "translateX(-150px)";
+        bola1.style.transform = "translateX(110px)";
+        bola2.style.transform = "translateX(-110px)";
         
     } else if (tipo === "Repulsión") {
         flechas.innerHTML = "<-- Repulsión -->";
@@ -59,6 +79,32 @@ function calcularFuerza() {
         bola1.style.transform = "translateX(0)";
         bola2.style.transform = "translateX(0)";
     }
+}
+function resetearSimulador() {
+    // 1. Vaciar las cajas de texto
+    document.getElementById('q1').value = '';
+    document.getElementById('q2').value = '';
+    document.getElementById('r').value = '';
+
+    // 2. Restaurar el texto de resultados
+    document.getElementById('resultado').innerHTML = 'Ingresa los valores y presiona calcular.';
+
+    // 3. Restaurar las flechas y el texto visual
+    let flechas = document.getElementById('flechas');
+    flechas.innerHTML = "Esperando simulación...";
+    flechas.style.color = "#495057";
+
+    // 4. Regresar las esferas a estado neutral y posición cero
+    let bola1 = document.getElementById('bola1');
+    let bola2 = document.getElementById('bola2');
+    
+    bola1.className = 'charge neutral';
+    bola1.innerText = '0';
+    bola1.style.transform = "translateX(0)";
+
+    bola2.className = 'charge neutral';
+    bola2.innerText = '0';
+    bola2.style.transform = "translateX(0)";
 }
 
 function actualizarBola(id, carga) {

@@ -17,10 +17,18 @@
                 F = K <span class="fraction"><span class="top">|q₁ · q₂|</span><span class="bottom">r²</span></span>
             </div>
 
+            <h3 style="margin-top: 25px;">Campo Eléctrico</h3>
+            <p>Es la región del espacio donde una carga altera su entorno. Su magnitud es directamente proporcional al valor de la carga que lo genera e inversamente proporcional al cuadrado de la distancia.</p>
+            
+            <div class="formula-box">
+                E = K <span class="fraction"><span class="top">|q|</span><span class="bottom">r²</span></span>
+            </div>
+
             <div class="variables">
                 <h4>Variables:</h4>
                 <ul>
                     <li><strong>F:</strong> Fuerza eléctrica <em>(Newtons, N)</em></li>
+                    <li><strong>E:</strong> Campo eléctrico <em>(Newtons/Coulomb, N/C)</em></li>
                     <li><strong>q₁, q₂:</strong> Cargas eléctricas <em>(Coulombs, C)</em></li>
                     <li><strong>r:</strong> Distancia entre las cargas <em>(Metros, m)</em></li>
                 </ul>
@@ -51,7 +59,9 @@
                 <input type="number" id="r" value="10" step="any" min="0.1">
             </div>
             
-            <button onclick="calcularFuerza()">Calcular y Simular</button>
+            <button onclick="calcularFuerza()">Calcular</button>
+            
+            <button class="btn-reset" onclick="resetearSimulador()">Limpiar Datos</button>
 
             <div class="result" id="resultado">
                 Ingresa los valores y presiona calcular.
