@@ -184,9 +184,17 @@ button:hover { background-color: #0b5ed7; }
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
-.positive { background-color: #dc3545; box-shadow: 0 0 20px rgba(220, 53, 69, 0.6); }
-.negative { background-color: #0dcaf0; box-shadow: 0 0 20px rgba(13, 202, 240, 0.6); }
-.neutral { background-color: #6c757d; }
+.positive { 
+    background-color: #dc3545; box-shadow: 0 0 20px rgba(220, 53, 69, 0.6);
+}
+
+.negative { 
+    background-color: #0dcaf0; box-shadow: 0 0 20px rgba(13, 202, 240, 0.6);
+}
+
+.neutral {
+    background-color: #6c757d;
+}
 
 .arrows { 
     flex-grow: 1; 
@@ -194,14 +202,4 @@ button:hover { background-color: #0b5ed7; }
     font-weight: bold; 
     font-size: 1.1em;
     color: #495057; 
-}
-
-/* Responsividad: Si la pantalla es pequeña (celulares), se apilan los paneles */
-@media (max-width: 768px) {
-    .main-wrapper {
-        flex-direction: column;
-    }
-    .sidebar, .container {
-        width: 100%;
-    }
 }
