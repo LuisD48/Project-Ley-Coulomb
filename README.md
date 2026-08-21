@@ -1,4 +1,4 @@
-﻿# Project-Ley-Coulomb
+﻿# Project-Ley-Coulomb-Campo-Electrico
 
 ## Simulador de Fuerza y Campo Eléctrico
 
